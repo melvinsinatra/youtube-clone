@@ -1,5 +1,5 @@
 import { Box, CssBaseline, ThemeProvider } from '@mui/material';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { SidebarContextProvider } from './contexts/SidebarContext';
 import { useTheme, useUpdateThemeMode } from './contexts/ThemeContext';
 import Navbar from './layouts/Navbar';
@@ -15,7 +15,7 @@ function App() {
 
 	return (
 		<ThemeProvider theme={theme}>
-			<BrowserRouter>
+			<HashRouter>
 				<Box bgcolor={'background.default'} color={'text.primary'}>
 					<CssBaseline />
 					<SidebarContextProvider>
@@ -29,7 +29,7 @@ function App() {
 						</Routes>
 					</SidebarContextProvider>
 				</Box>
-			</BrowserRouter>
+			</HashRouter>
 		</ThemeProvider>
 	);
 }
