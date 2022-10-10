@@ -33,7 +33,7 @@ import {
 	VideoCallOutlined
 } from '@mui/icons-material';
 
-import ProfilePicture from '../assets/avatar.png';
+import ProfilePicture from '../assets/avatar.svg';
 
 import React, { useRef, useState } from 'react';
 import { useSidebarState, useSidebarUpdateState } from '../contexts/SidebarContext';
