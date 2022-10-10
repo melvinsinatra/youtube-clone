@@ -1,7 +1,6 @@
-import { Box, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import ChannelCard from '../components/ChannelCard';
-import PlaylistCard from '../components/PlaylistCard';
 import VideoCard2 from '../components/VideoCard2';
 import { useAlternativeFetch } from '../utils/useFetch';
 
@@ -18,8 +17,6 @@ const SearchVideoResults = ({ searchQuery }) => {
 
 		return () => abortCont.abort();
 	}, []);
-
-	console.log(searchResults);
 
 	const searchCardEls = searchResults.map((result) => {
 		return result.type === 'video' ? (

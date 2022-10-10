@@ -1,11 +1,10 @@
 import { Box, Stack } from '@mui/material';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import MobileSidebar from '../components/MobileSidebar';
-import RelatedVideos from '../layouts/RelatedVideos';
 import Sidebar from '../components/Sidebar';
-import VideoDetails from '../layouts/VideoDetails/VideoDetails';
 import { useTheme } from '../contexts/ThemeContext';
+import RelatedVideos from '../layouts/RelatedVideos';
+import VideoDetails from '../layouts/VideoDetails/VideoDetails';
 
 const VideoPage = () => {
 	const theme = useTheme();
