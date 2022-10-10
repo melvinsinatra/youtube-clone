@@ -26,5 +26,7 @@
     "@vitejs/plugin-react": "^2.1.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "vite": "^3.1.0"
-  }
+  },
+  "homepage": "https://melvinsinatra.github.io/youtube-clone/"
+
 }
