@@ -1,4 +1,4 @@
 # youtube-clone
 An incomplete clone of youtube, made using ReactJS and Material UI
 
-Hi, this is my project about a clone of youtube. So far, this site only allows to do searches, and view videos, channels, and playlists. Since github pages only supports static pages, feel free to fork this repository to inspect my project :)
+Hi, this is my project about a clone of youtube. So far, this site only allows to do video/channel searches, and view video pages, channel pages, and playlist pages. Feel free to fork / view in github pages to inspect my project :)
