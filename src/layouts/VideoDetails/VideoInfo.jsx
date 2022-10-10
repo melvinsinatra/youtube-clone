@@ -2,7 +2,7 @@ import { ContentCutOutlined, MoreHorizOutlined, PlaylistAddOutlined, ShareOutlin
 import { Avatar, Box, Button, CircularProgress, Skeleton, Stack, styled, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ProfilePicture from '../../assets/avatar.png';
+import ProfilePicture from '../../assets/avatar.svg';
 import CommentCard from '../../components/CommentCard';
 import { formatDate } from '../../utils/formatters';
 import { formatCompactNumber, formatNumber } from '../../utils/formatters';
