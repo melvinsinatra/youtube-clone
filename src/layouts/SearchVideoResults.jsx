@@ -16,7 +16,7 @@ const SearchVideoResults = ({ searchQuery }) => {
 		});
 
 		return () => abortCont.abort();
-	}, []);
+	}, [searchQuery]);
 
 	const searchCardEls = searchResults.map((result) => {
 		return result.type === 'video' ? (
@@ -30,7 +30,7 @@ const SearchVideoResults = ({ searchQuery }) => {
 				publishedText={result.publishedText}
 				isLoading={isLoading}
 				direction={'row'}
-        avatar={result.channelThumbnail[0]?.url}
+				avatar={result.channelThumbnail[0]?.url}
 				description={result.description}
 			/>
 		) : (
@@ -47,7 +47,11 @@ const SearchVideoResults = ({ searchQuery }) => {
 		);
 	});
 
-	return <Stack direction="column" rowGap={{xs: .1, md: 2}} pt={2}>{searchResults && searchCardEls}</Stack>;
+	return (
+		<Stack direction="column" rowGap={{ xs: 0.1, md: 2 }} pt={2}>
+			{searchResults && searchCardEls}
+		</Stack>
+	);
 };
 
 export default SearchVideoResults;
