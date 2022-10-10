@@ -90,6 +90,7 @@ const Navbar = ({ setMode }) => {
 	 */
 	const [avatarOpen, setAvatarOpen] = useState(false);
 	const [avatarAnchorEl, setAvatarAnchorEl] = useState(null);
+	const [search, setSearch] = useState("");
 
 	function handleAvatarClick(e) {
 		setAvatarOpen(true);
@@ -111,14 +112,6 @@ const Navbar = ({ setMode }) => {
 	const searchRef = useRef();
 	const mobileSearchRef = useRef();
 
-	function handleSearchClick() {
-		location.href = window.location.origin + '/search/' + searchRef.current.value
-	}
-
-	function handleMobileSearchClick() {
-		location.href = window.location.origin + '/search/' + mobileSearchRef.current.value
-	}
-
 	return (
 		<StyledAppBar position="fixed" open={sidebarOpen}>
 			<Stack direction="row" columnGap={2} p={{ xs: 0.5, md: 3 }} bgcolor={'background.default'} color={'text.primary'}>
@@ -137,8 +130,8 @@ const Navbar = ({ setMode }) => {
 					>
 						<MenuIcon sx={{ cursor: 'pointer', color: 'text.secondary' }} />
 					</IconButton>
-					<Link to={'/'} style={{display: 'flex'}}>
-						<YoutubeLogo/>
+					<Link to={'/'} style={{ display: 'flex' }}>
+						<YoutubeLogo />
 					</Link>
 				</Stack>
 				{/**
@@ -154,11 +147,13 @@ const Navbar = ({ setMode }) => {
 							 * The rendered search input for 'md' devices and so on
 							 */
 							<>
-								<InputBase inputRef={searchRef} placeholder="Search Youtube" fullWidth inputProps={{ 'aria-label': 'search youtube' }} />
+								<InputBase inputRef={searchRef} onChange={()=>setSearch(searchRef.current.value)} placeholder="Search Youtube" fullWidth inputProps={{ 'aria-label': 'search youtube' }} />
 								<Tooltip title="Search">
-									<IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={handleSearchClick}>
-										<Search />
-									</IconButton>
+									<Link to={search && `/search/${search}`}>
+										<IconButton type="button" sx={{ p: '10px' }} aria-label="search">
+											<Search />
+										</IconButton>
+									</Link>
 								</Tooltip>
 							</>
 						) : (
@@ -166,7 +161,7 @@ const Navbar = ({ setMode }) => {
 							 * The rendered search input for 'xs' and 'sm' devices
 							 */
 							<>
-								{/* Search icon */}
+								{/* 'xs' and 'sm' Search icon */}
 								<IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={toggleDrawer(true)}>
 									<Search />
 								</IconButton>
@@ -175,12 +170,14 @@ const Navbar = ({ setMode }) => {
 									<Box sx={{ width: 'auto' }} role="presentation">
 										<Stack direction="row">
 											<IconButton type="button" sx={{ p: '.5em' }} aria-label="search">
-												<ArrowBack onClick={toggleDrawer(false)}/>
+												<ArrowBack onClick={toggleDrawer(false)} />
 											</IconButton>
-											<InputBase inputRef={mobileSearchRef} placeholder="Search Youtube" fullWidth inputProps={{ 'aria-label': 'search youtube' }} />
-											<IconButton type="button" sx={{ p: '.5em' }} aria-label="search" onClick={handleMobileSearchClick}>
-												<Search />
-											</IconButton>
+											<InputBase inputRef={mobileSearchRef} onChange={()=>setSearch(mobileSearchRef.current.value)} placeholder="Search Youtube" fullWidth inputProps={{ 'aria-label': 'search youtube' }} />
+											<Link to={search && `/search/${search}`}>
+												<IconButton type="button" sx={{ p: '.5em' }} aria-label="search">
+													<Search />
+												</IconButton>
+											</Link>
 										</Stack>
 									</Box>
 								</Drawer>
@@ -191,7 +188,7 @@ const Navbar = ({ setMode }) => {
 					 * UTILITY ICONS AND AVATAR STACK
 					 */}
 					<Stack direction="row" alignItems="center" justifyContent="end" gap="1em" sx={{ flex: { xs: 2, md: 6 } }}>
-						<IconContainer>
+						<IconContainer onClick={()=> console.log(searchRef.current.value)}>
 							<Tooltip title="Create">
 								<VideoCallOutlined sx={{ color: 'text.secondary' }} />
 							</Tooltip>
